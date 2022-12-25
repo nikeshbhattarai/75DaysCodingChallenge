@@ -72,7 +72,7 @@ while enough_resources:
     if choice == "off":
         enough_resources = False
     elif choice == "report":
-        print("Water: {}ml\nMilk: {}ml\nCoffee: {}g\nMoney: ${}".format(resources["water"],resources["milk"],resources["coffee"], amount_generated))
+        print("Water: {}ml\nMilk: {}ml\nCoffee: {}g\nMoney: ${}".format(resources["water"],resources["milk"],resources["coffee"], profit))
     else:
         result = check_resources(MENU[choice]["ingredients"])
         if result:
