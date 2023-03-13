@@ -1,33 +1,35 @@
-import random
+student_dict = {
+    "student": ["Angela", "James", "Lily"], 
+    "score": [56, 76, 98]
+}
 
-numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+#Looping through dictionaries:
+for (key, value) in student_dict.items():
+    #Access key and value
+    pass
 
-squared_numbers = [num**2 for num in numbers]
+import pandas as pd
+student_data_frame = pd.DataFrame(student_dict)
 
-print(squared_numbers)
+#Loop through rows of a data frame
+for (index, row) in student_data_frame.iterrows():
+    #Access index and row
+    print(index)
+    print(row)
+    #Access row.student or row.score
+    pass
 
-result = [num for num in numbers if num%2 == 0]
+# Keyword Method with iterrows()
+# {new_key:new_value for (index, row) in df.iterrows()}
 
-print(result)
+df = pd.read_csv('nato_phonetic_alphabet.csv')
 
-with open('file1.txt', 'r') as file1:
-    items_file1 = file1.readlines()
+#TODO 1. Create a dictionary in this format:
+{"A": "Alfa", "B": "Bravo"}
+nato_data_frame = {row.letter:row.code for (index, row) in df.iterrows()}
+print(nato_data_frame)
 
-with open('file2.txt', 'r') as file2:
-    items_file2 = file2.readlines()
-
-result = [int(item) for item in items_file1 if item in items_file2]
-print(result)
-
-names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Eleanor', 'Freddie']
-
-students_scores = {student:random.randint(1, 100) for student in names}
-print(students_scores)
-
-passed_students = {student:score for (student, score) in students_scores.items() if score >= 60}
-print(passed_students)
-
-sentence = "What is the Airspeed Velocity of an Unladen Swallow?"
-
-result = {word:len(word) for word in sentence.split()}
-print(result)
+#TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+word = input('Enter a word: ')
+final_list = [nato_data_frame[letters.upper()] for letters in word]
+print(final_list)
