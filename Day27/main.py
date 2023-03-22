@@ -12,17 +12,15 @@ window.minsize(width=500, height=300)
 
 #Label
 my_label = Label(text="This is a label", font=("Arial", 24, "bold"))
-my_label.pack()
+my_label.pack(side='left')
 
 #Button
 button = Button(text="Click me", command=button_clicked)
-button.pack()
+button.pack(side='left')
 
 #Entry
 input = Entry(width=10)
-input.pack()
-
-
+input.pack(side="left")
 
 
 window.mainloop()
