@@ -3,7 +3,7 @@ import requests
 SHEETY_PRICES_ENDPOINT = "https://api.sheety.co/75327416cb3e93bd5260e25a6055c289/flightDeals/prices/"
 
 class DataManager:
-    #This class is responsible for talking to the Google Sheet.
+
     def __init__(self):
         self.destination_data = {}
 
