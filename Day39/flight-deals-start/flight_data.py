@@ -1,22 +1,10 @@
-import requests
-from data_manager import DataManager
-from datetime import datetime
-
-TEQUILA_ENDPOINT = "https://api.tequila.kiwi.com"
-TEQUILE_API_KEY = "c_T_StxMuX0IYja8dgE2552yQpImhcot"
-
-data_manager = DataManager()
-data = data_manager.get_destination_data()
-print(data)
 class FlightData:
-    #This class is responsible for structuring the flight data.
-    def get_flight_price(self):
-        data = data_manager.get_destination_data()
-        search_endpoint = f"{TEQUILA_ENDPOINT}/v2/search"
-        headers = {"apikey" : TEQUILE_API_KEY}
-        query = {
-            "fly_from" : "LON",
-            "fly_to" : data['iataCode'],
-            "date_from" : ,
-            "date_to" :  
-        }
+
+    def __init__(self, price, origin_city, origin_airport, destination_city, destination_airport, out_date, return_date):
+        self.price =  price
+        self.origin_city = origin_city
+        self.origin_airport = origin_airport
+        self.destination_city = destination_city
+        self.destination_airport = destination_airport
+        self.out_date = out_date
+        self.return_date = return_date
