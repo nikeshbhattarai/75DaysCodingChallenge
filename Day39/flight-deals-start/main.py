@@ -1,12 +1,12 @@
 from datetime import datetime, timedelta
 from flight_search import FlightSearch
 from data_manager import DataManager
-from notification_manager import NotificationManager
+# from notification_manager import NotificationManager
 
 
 flight_search = FlightSearch()
 data_manager = DataManager()
-notification_manager = NotificationManager()
+# notification_manager = NotificationManager()
 sheet_data = data_manager.get_destination_data()
 
 ORIGIN_CITY_IATA = "LON"
@@ -29,7 +29,10 @@ for destination in sheet_data:
         to_time=six_months_from_today
     )
 
-    if flight.price < destination["lowestPrice"]:
-        notification_manager.send_sms(
-            message=f"Low price alert! Only £{flight.price} to fly from {flight.origin_city}-{flight.origin_airport} to {flight.destination_city}-{flight.destination_airport}, from {flight.out_date} to {flight.return_date}."
-        )
+    if flight is None:
+        continue
+
+    # if flight.price < destination["lowestPrice"]:
+    #     notification_manager.send_sms(
+    #         message=f"Low price alert! Only £{flight.price} to fly from {flight.origin_city}-{flight.origin_airport} to {flight.destination_city}-{flight.destination_airport}, from {flight.out_date} to {flight.return_date}."
+    #     )
